@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wanda Maximoff | Scarlet Witch</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: url('wanda.jpg') center/cover no-repeat fixed;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 40px 10px;
+      backdrop-filter: blur(5px);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #ff0033;
+      text-shadow: 0 0 15px #ff0033;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff0033; }
+      to { text-shadow: 0 0 25px #ff0033; }
+    }
+
+    nav {
+      background: rgba(255, 0, 51, 0.2);
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff0033;
+      text-shadow: 0 0 10px #ff0033;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .intro {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 0, 51, 0.5);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff0033;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.9);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    /* Animasi scroll fade-in */
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s ease;
+    }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Wanda Maximoff</h1>
+    <p class="intro">“You break the rules and become a hero... I do it and I become the enemy.”</p>
+  </header>
+
+  <nav>
+    <a href="#about">Tentang</a>
+    <a href="#gallery">Galeri</a>
+  </nav>
+
+  <section id="about" class="fade">
+    <h2 style="color:#ff0033; text-shadow:0 0 10px #ff0033;">Scarlet Witch</h2>
+    <p class="intro">
+      Wanda Maximoff, dikenal sebagai <strong>Scarlet Witch</strong>, adalah salah satu pengguna sihir terkuat di Marvel Universe.
+      Dengan kekuatan Chaos Magic, ia mampu memanipulasi realitas, waktu, dan pikiran.
+    </p>
+  </section>
+
+  <section id="gallery" class="fade">
+    <h2 style="color:#ff0033; text-shadow:0 0 10px #ff0033;">Galeri Wanda</h2>
+    <div class="gallery">
+      <img src="wanda1.jpg" alt="Wanda Maximoff 1">
+      <img src="wanda2.jpg" alt="Wanda Maximoff 2">
+      <img src="wanda3.jpg" alt="Wanda Maximoff 3">
+      <img src="wanda4.jpg" alt="Wanda Maximoff 4">
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Scarlet Witch Fanpage | Created by Fadilandrean
+  </footer>
+
+  <script>
+    // Efek muncul saat di-scroll
+    const fades = document.querySelectorAll('.fade');
+    window.addEventListener('scroll', () => {
+      const trigger = window.innerHeight * 0.85;
+      fades.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < trigger) el.classList.add('visible');
+      });
+    });
+  </script>
+</body>
+</html>
